@@ -43,6 +43,9 @@ body {
 
 .game__header h1 {
   font-size: 3rem;
+  font-family:'Pokemon Solid', sans-serif;
+  color: blue;
+
 }
 
 .game__header--timer-container {
