@@ -29,3 +29,8 @@ startButton.onclick = () => {
 stopButton.onclick = () => {
   clearInterval(timer);
 };
+
+/*resetButton.onclick = function () {
+  clearInterval(timer);
+  stopwatch.innerHTML =  `${0}:${0}<span class="clock-cs">${"00"}</span>`;
+}*/
