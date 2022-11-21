@@ -1,7 +1,7 @@
 // stopwatch
-const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
-const stopwatch = document.getElementById("stopwatch");
+const startButton = document.getElementById(""); //link to whatever is in the HTML
+const stopButton = document.getElementById(""); //link to whatever is in the HTML
+const stopwatch = document.getElementById(""); //link to whatever is in the HTML
 
 let timerStart;
 let timer;
