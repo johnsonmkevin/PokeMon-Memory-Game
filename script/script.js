@@ -1,36 +1,25 @@
-// stopwatch
-const startButton = document.getElementById(""); //link to whatever is in the HTML
-const stopButton = document.getElementById(""); //link to whatever is in the HTML
-// const stopwatch = document.getElementById(""); //link to whatever is in the HTML
+"use strict";
 
-let timerStart;
-let timer;
+const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 
-const updateStopwatch = () => {
-  const time = Date.now() - timerStart;
-  const seconds = Math.floor(time / 1000) % 60;
-  const centiSeconds = Math.floor(time / 10) % 100;
-  const minutes = Math.floor(time / 1000 / 60) % 60;
+const loadCardsFromApi = async () => {
+  const randomPokemonIds = new Set();
 
-  stopwatch.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}:${centiSeconds.toString().padStart(2, "0")}`;
+  while (randomPokemonIds.size < 8) {
+    const randomNumber = Math.ceil(Math.random() * 150);
+    randomPokemonIds.add(randomNumber);
+  }
+
+  const promisesArray = [...randomPokemonIds].map((randomPokemonId) =>
+    fetch(apiURL + randomPokemonId)
+  );
+  const responseFromApi = await Promise.all(promisesArray);
+  const pokemonData = await Promise.all(
+    responseFromApi.map((item) => item.json())
+  );
+
+  console.log(pokemonData);
+  return pokemonData;
 };
 
-startButton.onclick = () => {
-  timerStart = Date.now();
-
-  updateStopwatch();
-  timer = setInterval(() => {
-    updateStopwatch();
-  }, 10);
-};
-
-stopButton.onclick = () => {
-  clearInterval(timer);
-};
-
-/*resetButton.onclick = function () {
-  clearInterval(timer);
-  stopwatch.innerHTML =  `${0}:${0}<span class="clock-cs">${"00"}</span>`;
-}*/
+console.log(loadCardsFromApi());
