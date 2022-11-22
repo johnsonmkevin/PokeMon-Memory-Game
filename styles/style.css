@@ -65,3 +65,12 @@ body {
   width: 10rem;
   font-size: 1.5rem;
 }
+
+#GameOver {
+  padding: 0.3rem;
+  background-color: yellow;
+  border: 3px blue solid;
+  width: 10rem;
+  font-size: 1.5rem;
+}
+

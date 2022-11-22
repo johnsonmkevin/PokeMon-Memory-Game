@@ -1,36 +1,15 @@
-// stopwatch
-const startButton = document.getElementById(""); //link to whatever is in the HTML
-const stopButton = document.getElementById(""); //link to whatever is in the HTML
-const stopwatch = document.getElementById(""); //link to whatever is in the HTML
-
+const startButtonEl = document.getElementById("startGameButton");
+const clockEl = document.getElementById("stopwatch");
+const gameOverEl = document.getElementById("GameOver");
 let timerStart;
-let timer;
+let timer = 90;
 
-const updateStopwatch = () => {
-  const time = Date.now() - timerStart;
-  const seconds = Math.floor(time / 1000) % 60;
-  const centiSeconds = Math.floor(time / 10) % 100;
-  const minutes = Math.floor(time / 1000 / 60) % 60;
-
-  stopwatch.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
-    .toString()
-    .padStart(2, "0")}:${centiSeconds.toString().padStart(2, "0")}`;
+startButtonEl.onclick = function () {
+  interval = setInterval(() => {
+    let seconds = Math.round(900 / 1000);
+    timer -= seconds;
+    clockEl.innerHTML = `${timer}:00`;
+    localStorage.setItem("timer", timer);
+  }, 1000);
 };
 
-startButton.onclick = () => {
-  timerStart = Date.now();
-
-  updateStopwatch();
-  timer = setInterval(() => {
-    updateStopwatch();
-  }, 10);
-};
-
-stopButton.onclick = () => {
-  clearInterval(timer);
-};
-
-/*resetButton.onclick = function () {
-  clearInterval(timer);
-  stopwatch.innerHTML =  `${0}:${0}<span class="clock-cs">${"00"}</span>`;
-}*/
