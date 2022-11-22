@@ -13,13 +13,14 @@
         <h1>Pokémon memory game</h1>
         <div class="game__header--timer-container">
           <p>Your time:</p>
-          <span class="game__header--timer">00:00:00</span>
+          <span id="timer" class="game__header--timer">00:00:00</span>
         </div>
         <button id="startGameButton">New game!</button>
+        <button id="stopButton">stop</button>
       </header>
       <section class="game__board"></section>
       <section class="highscore__container">
-        <ol class="highscore__list">
+        <ol id="scoreboard" class="highscore__list">
           <li>(placeholder)</li>
           <li>(placeholder)</li>
           <li>(placeholder)</li>
