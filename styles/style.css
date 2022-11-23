@@ -44,8 +44,9 @@ body {
 .game__header h1 {
   font-size: 3rem;
   font-family:'Pokemon Solid', sans-serif;
-  color: blue;
-
+  color: #FECB04;
+  text-shadow: 2px 0 0 #3A5DA8,0 1px 0 #3A5DA8,-1px 0 0 #3A5DA8,0 -1px 0 #3A5DA8;
+  -webkit-text-stroke: 2px #3A5DA8;
 }
 
 .game__header--timer-container {
@@ -61,14 +62,12 @@ body {
 #startGameButton {
   padding: 0.3rem;
   background-color: yellow;
-  border: 3px blue solid;
+  border: 3px #3A5DA8 solid;
   width: 10rem;
   font-size: 1.5rem;
 }
 
-
 /* loader */
-
 .lds-ring {
   display: inline-block;
   position: relative;
