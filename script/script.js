@@ -14,9 +14,9 @@ let scoreboardElement = document.createElement("li");
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
 // * Display loader
-const displayLoader = () => {
-  loader.classList.toggle("hidden");
-};
+// const displayLoader = () => {
+//   loader.classList.toggle("hidden");
+// };
 
 // * Fetch api function
 const loadCardsFromApi = async () => {
@@ -36,7 +36,6 @@ const loadCardsFromApi = async () => {
   );
 
   console.log(pokemonData);
-  displayLoader();
   return pokemonData;
 };
 console.log(loadCardsFromApi());
@@ -56,7 +55,7 @@ const displayPokemonCards = (pokemonIdsArray) => {
       const pokemonImgData = card.sprites.front_default;
       const pokemonNameData = card.name;
       return `
-    <div class="card" onclick="clickCard(event)" data-pokename="${pokemonNameData}">
+    <div class="card" data-pokename="${pokemonNameData}">
     <div class="front"></div>
     <div class="back rotated">
     <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
