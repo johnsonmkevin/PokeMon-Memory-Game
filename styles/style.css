@@ -67,10 +67,9 @@ body {
   background: rgba(0,0,0,0.5);
   padding: 1rem;
   border-radius: 16px;
-
   text-align: center;
   
-}
+} 
 
 #startGameButton {
   padding: 0.3rem;
