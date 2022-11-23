@@ -4,6 +4,9 @@ const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
 const gameBoard = document.getElementById("gameBoard");
 
+const gameBoardContainer = document.querySelector(".game__board")
+gameBoardContainer.classList.add("hidden")
+
 // loader
 const loader = document.getElementById("loader");
 
@@ -12,6 +15,8 @@ const scoreboardWrapper = document.getElementById("scoreboard");
 let scoreboardElement = document.createElement("li");
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
+
+
 
 // * Display loader
 // const displayLoader = () => {
@@ -42,6 +47,7 @@ console.log(loadCardsFromApi());
 
 // Rendering images in the gameboard
 const createNewGame = async () => {
+  gameBoardContainer.classList.remove("hidden")
   const gameCardsDataArray = await loadCardsFromApi();
   displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
 };
