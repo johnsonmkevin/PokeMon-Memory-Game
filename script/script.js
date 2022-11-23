@@ -79,7 +79,12 @@ const displayPokemonCards = (pokemonIdsArray) => {
 // * Scoreboard function
 const storeScore = (currentScore) => {
   let name = "Ester";
-  let playerScore = { player: name, score: currentScore };
+  let scoreDate = new Date();
+  let playerScore = {
+    date: scoreDate.toLocaleDateString(),
+    player: name,
+    score: currentScore,
+  };
   scoreArray.push(playerScore);
   localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
   console.log(scoreArray);
@@ -93,6 +98,8 @@ const createListElement = (i) => {
   let scoreboardElement = document.createElement("li");
 
   scoreboardElement.innerHTML =
+    JSON.parse(localStorage.getItem("scoreArray"))[i].date +
+    " " +
     JSON.parse(localStorage.getItem("scoreArray"))[i].player +
     ": " +
     JSON.parse(localStorage.getItem("scoreArray"))[i].score;
