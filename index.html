@@ -17,11 +17,10 @@
         <h1>Pokémon <img src="./assets/pokemonBall.png" width="45" height="39" alt=""> memory game</h1>
         <div class="game__header--timer-container">
           <p>Your time:</p>
-          <div class="clock" id="stopwatch">
-            90:00
-          </div>
+          <span id="timer" class="game__header--timer">00:00:00</span>
         </div>
         <button id="startGameButton">New game!</button>
+        <button id="stopButton">stop</button>
       </header>
       <div class="lds-ring" id="loader">
         <div></div>
@@ -31,7 +30,7 @@
       </div>
       <section class="game__board"></section>
       <section class="highscore__container">
-        <ol class="highscore__list">
+        <ol id="scoreboard" class="highscore__list">
           <li>(placeholder)</li>
           <li>(placeholder)</li>
           <li>(placeholder)</li>
