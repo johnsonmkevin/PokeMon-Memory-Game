@@ -1,6 +1,14 @@
 "use strict";
-
 const apiURL = "https://pokeapi.co/api/v2/pokemon/";
+
+// HTML Elements
+const gameBoard = document.querySelector("game_board");
+const loader = document.getElementById("loader");
+
+// Display loader
+const displayLoader = () => {
+  loader.classList.toggle("hidden");
+};
 
 const loadCardsFromApi = async () => {
   const randomPokemonIds = new Set();
@@ -19,6 +27,7 @@ const loadCardsFromApi = async () => {
   );
 
   console.log(pokemonData);
+  displayLoader();
   return pokemonData;
 };
 
