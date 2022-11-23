@@ -2,7 +2,7 @@ const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 
 // HTML Elements
 const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
-const gameBoard = document.querySelector("game_board");
+const gameBoard = document.getElementById("gameBoard");
 
 // loader
 const loader = document.getElementById("loader");
@@ -40,6 +40,34 @@ const loadCardsFromApi = async () => {
   return pokemonData;
 };
 console.log(loadCardsFromApi());
+
+// Rendering images in the gameboard
+const createNewGame = async () => {
+  const gameCardsDataArray = await loadCardsFromApi();
+  displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
+};
+
+const displayPokemonCards = (pokemonIdsArray) => {
+  pokemonIdsArray.sort((_) => Math.random() - 0.5);
+  console.log(pokemonIdsArray);
+
+  const pokemonCardHTML = pokemonIdsArray
+    .map((card) => {
+      const pokemonImgData = card.sprites.front_default;
+      const pokemonNameData = card.name;
+      return `
+    <div class="card" onclick="clickCard(event)" data-pokename="${pokemonNameData}">
+    <div class="front"></div>
+    <div class="back rotated">
+    <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
+    <h2>${pokemonNameData}</h2>
+    </div>
+    </div>
+    `;
+    })
+    .join("");
+  gameBoard.innerHTML = pokemonCardHTML;
+};
 
 // * Scoreboard function
 const setScoreboard = () => {
@@ -99,3 +127,5 @@ const stopTimer = () => {
 // stopTimer()
 // startTimer()
 // setScoreboard()
+
+startButton.addEventListener("click", createNewGame);
