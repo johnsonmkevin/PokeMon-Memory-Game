@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>Pokemon Memory Game</title>
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+</style>
+
   </head>
   <body>
     <main class="game__container">
       <header class="game__header">
-        <h1>Pokémon memory game</h1>
+        <h1>Pokémon <img src="./assets/pokemonBall.png" width="45" height="39" alt=""> memory game</h1>
         <div class="game__header--timer-container">
           <p>Your time:</p>
-          <span class="game__header--timer">00:00:00</span>
+          <div class="clock" id="stopwatch">
+            90:00
+          </div>
         </div>
         <button id="startGameButton">New game!</button>
       </header>
