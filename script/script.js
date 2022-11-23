@@ -1,11 +1,17 @@
+
 // stopwatch
 const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
 const stopButton = document.getElementById("stopButton"); //link to whatever is in the HTML
 const stopwatch = document.getElementById("timer"); //link to whatever is in the HTML
 const scoreboard = document.getElementById("scoreboard");
 
-let timerStart;
-let timer;
+const apiURL = "https://pokeapi.co/api/v2/pokemon/";
+
+
+// HTML Elements
+const gameBoard = document.querySelector("game_board");
+const loader = document.getElementById("loader");
+
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
@@ -35,16 +41,29 @@ const updateStopwatch = () => {
   stopwatch.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds
     .toString()
     .padStart(2, "0")}:${centiSeconds.toString().padStart(2, "0")}`;
+
+// Display loader
+const displayLoader = () => {
+  loader.classList.toggle("hidden");
+
 };
 
-startButton.onclick = () => {
-  timerStart = Date.now();
+const loadCardsFromApi = async () => {
+  const randomPokemonIds = new Set();
 
-  updateStopwatch();
-  timer = setInterval(() => {
-    updateStopwatch();
-  }, 10);
-};
+  while (randomPokemonIds.size < 8) {
+    const randomNumber = Math.ceil(Math.random() * 150);
+    randomPokemonIds.add(randomNumber);
+  }
+
+  const promisesArray = [...randomPokemonIds].map((randomPokemonId) =>
+    fetch(apiURL + randomPokemonId)
+  );
+  const responseFromApi = await Promise.all(promisesArray);
+  const pokemonData = await Promise.all(
+    responseFromApi.map((item) => item.json())
+  );
+
 
 const storeScore = (currentScore) => {
   let name = "Ester";
@@ -59,9 +78,10 @@ const storeScore = (currentScore) => {
 stopButton.onclick = () => {
   storeScore(stopwatch.innerText);
   clearInterval(timer);
+
+  console.log(pokemonData);
+  displayLoader();
+  return pokemonData;
 };
 
-/*resetButton.onclick = function () {
-  clearInterval(timer);
-  stopwatch.innerHTML =  `${0}:${0}<span class="clock-cs">${"00"}</span>`;
-}*/
+console.log(loadCardsFromApi());
