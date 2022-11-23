@@ -1,3 +1,4 @@
+// window.localStorage.clear();
 const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 
 // HTML Elements
@@ -44,7 +45,7 @@ const loadCardsFromApi = async () => {
   console.log(pokemonData);
   return pokemonData;
 };
-console.log(loadCardsFromApi());
+// console.log(loadCardsFromApi());
 
 // Rendering images in the gameboard
 const createNewGame = async () => {
@@ -52,11 +53,12 @@ const createNewGame = async () => {
   const gameCardsDataArray = await loadCardsFromApi();
   displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
   startTimer();
+  startButton.disabled = true; // disables the new game button while a game is already playing
 };
 
 const displayPokemonCards = (pokemonIdsArray) => {
   pokemonIdsArray.sort((_) => Math.random() - 0.5);
-  console.log(pokemonIdsArray);
+  // console.log(pokemonIdsArray);
 
   const pokemonCardHTML = pokemonIdsArray
     .map((card) => {
@@ -87,14 +89,14 @@ const storeScore = (currentScore) => {
   };
   scoreArray.push(playerScore);
   localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-  console.log(scoreArray);
-  console.log(JSON.parse(localStorage.getItem("scoreArray")));
+  // console.log(scoreArray);
+  // console.log(JSON.parse(localStorage.getItem("scoreArray")));
   return scoreArray;
 };
 
 const createListElement = (i) => {
-  console.log(localStorage.getItem("scoreArray"));
-  console.log(JSON.parse(localStorage.getItem("scoreArray")));
+  // console.log(localStorage.getItem("scoreArray"));
+  // console.log(JSON.parse(localStorage.getItem("scoreArray")));
   let scoreboardElement = document.createElement("li");
 
   scoreboardElement.innerHTML =
@@ -142,6 +144,7 @@ const stopTimer = () => {
   createListElement(scoreArray.length - 1);
   clearInterval(timer);
   console.log(scoreArray);
+  startButton.disabled = false;
 };
 
 // ! List of helper functions
