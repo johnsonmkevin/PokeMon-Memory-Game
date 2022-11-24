@@ -61,11 +61,13 @@ body {
   font-weight: 600;
 }
 
+
 #gameBoard{
   display: grid;
   grid-template-columns: repeat(4, 120px);
   grid-template-rows: repeat(4, 120px);
   grid-gap: 1rem;
+
   background: rgba(0,0,0,0.5);
   padding: 1rem;
   border-radius: 16px;
@@ -73,10 +75,14 @@ body {
   
 } 
 
+
 #startGameButton {
   padding: 0.3rem;
   background-color: yellow;
+
+
   border: 3px #3A5DA8 solid;
+
   width: 10rem;
   font-size: 1.5rem;
 }
