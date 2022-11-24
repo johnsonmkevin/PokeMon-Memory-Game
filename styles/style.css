@@ -25,6 +25,7 @@ body {
     #ffdc87,
     #f9f184
   );
+  min-height: 100vh;
 }
 
 .game__container {
@@ -59,6 +60,18 @@ body {
 .game__header--timer-container p {
   font-weight: 600;
 }
+
+#gameBoard{
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  grid-gap: 1rem;
+  background: rgba(0,0,0,0.5);
+  padding: 1rem;
+  border-radius: 16px;
+  text-align: center;
+  
+} 
 
 #startGameButton {
   padding: 0.3rem;

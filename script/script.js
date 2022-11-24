@@ -4,6 +4,9 @@ const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
 const gameBoard = document.getElementById("gameBoard");
 
+const gameBoardContainer = document.querySelector(".game__board")
+gameBoardContainer.classList.add("hidden")
+
 // loader
 const loader = document.getElementById("loader");
 
@@ -13,10 +16,12 @@ let scoreboardElement = document.createElement("li");
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
+
+
 // * Display loader
-const displayLoader = () => {
-  loader.classList.toggle("hidden");
-};
+// const displayLoader = () => {
+//   loader.classList.toggle("hidden");
+// };
 
 // * Fetch api function
 const loadCardsFromApi = async () => {
@@ -36,13 +41,13 @@ const loadCardsFromApi = async () => {
   );
 
   console.log(pokemonData);
-  displayLoader();
   return pokemonData;
 };
 console.log(loadCardsFromApi());
 
 // Rendering images in the gameboard
 const createNewGame = async () => {
+  gameBoardContainer.classList.remove("hidden")
   const gameCardsDataArray = await loadCardsFromApi();
   displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
 };
@@ -56,7 +61,7 @@ const displayPokemonCards = (pokemonIdsArray) => {
       const pokemonImgData = card.sprites.front_default;
       const pokemonNameData = card.name;
       return `
-    <div class="card" onclick="clickCard(event)" data-pokename="${pokemonNameData}">
+    <div class="card" data-pokename="${pokemonNameData}">
     <div class="front"></div>
     <div class="back rotated">
     <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
