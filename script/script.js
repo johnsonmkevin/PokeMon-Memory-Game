@@ -9,6 +9,10 @@ const stopwatch = document.getElementById("timer");
 const stopButton = document.getElementById("stopButton"); // for testing pruposes
 const scoreboardWrapper = document.getElementById("scoreboard");
 
+let firstPick;
+let isPaused = true;
+let matches = 0;
+
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 gameBoardContainer.classList.add("hidden");
 
@@ -41,14 +45,14 @@ const displayPokemonCards = (pokemonIdsArray) => {
       const pokemonImgData = card.sprites.front_default;
       const pokemonNameData = card.name;
       return `
-  <div class="card" data-pokename="${pokemonNameData}">
-  <div class="front"></div>
-  <div class="back rotated">
-  <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
-  <h2>${pokemonNameData}</h2>
-  </div>
-  </div>
-  `;
+        <div class="card" onclick="flipCard(event)" data-pokename="${pokemonNameData}">
+          <div class="front"></div>
+          <div class="back rotated">
+            <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
+            <h2>${pokemonNameData}</h2>
+          </div>
+        </div>
+      `;
     })
     .join("");
   gameBoard.innerHTML = pokemonCardHTML;
@@ -122,11 +126,63 @@ const stopTimer = () => {
   startButton.disabled = false;
 };
 
+// * FLipping card functionality
+const flipCard = (e) => {
+  const pokemonCard = e.currentTarget;
+  const [front, back] = getFrontAndBack(pokemonCard);
+  if (front.classList.contains("rotated") || isPaused) {
+    return;
+  }
+  isPaused = true;
+  rotateElements([front, back]);
+  if (!firstPick) {
+    firstPick = pokemonCard;
+    isPaused = false;
+  } else {
+    const secondPokemonName = pokemonCard.dataset.pokename;
+    const firstPokemonName = firstPick.dataset.pokename;
+    if (firstPokemonName !== secondPokemonName) {
+      const [firstFront, firstBack] = getFrontAndBack(firstPick);
+      setTimeout(() => {
+        rotateElements([front, back, firstFront, firstBack]);
+        firstPick = null;
+        isPaused = false;
+      }, 500);
+    } else {
+      matches++;
+      if (matches === 8) {
+        stopTimer();
+        console.log("WINNER");
+      }
+      firstPick = null;
+      isPaused = false;
+    }
+  }
+};
+
+const getFrontAndBack = (card) => {
+  const front = card.querySelector(".front");
+  const back = card.querySelector(".back");
+  return [front, back];
+};
+
+const rotateElements = (elements) => {
+  if (typeof elements !== "object" || !elements.length) return;
+  elements.forEach((element) => element.classList.toggle("rotated"));
+};
+
 // * Start new Game
 const createNewGame = async () => {
+  isPaused = true;
+  firstPick = null;
+  matches = 0;
   gameBoardContainer.classList.remove("hidden");
-  const gameCardsDataArray = await loadCardsFromApi();
-  displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
+  setTimeout(async () => {
+    const gameCardsDataArray = await loadCardsFromApi();
+    displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
+    isPaused = false;
+  }, 200);
+
   startTimer();
   startButton.disabled = true; // disables the new game button while a game is already playing
 };
