@@ -1,12 +1,11 @@
 const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 
 // HTML Elements
-const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
+const startButton = document.getElementById("startGameButton");
 const gameBoard = document.getElementById("gameBoard");
 const gameBoardContainer = document.querySelector(".game__board");
 const loader = document.getElementById("loader");
 const stopwatch = document.getElementById("timer");
-const stopButton = document.getElementById("stopButton"); // for testing pruposes
 const scoreboardWrapper = document.getElementById("scoreboard");
 
 let firstPick;
@@ -14,10 +13,14 @@ let isPaused = true;
 let matches = 0;
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
+
+// hidden elements by default
 gameBoardContainer.classList.add("hidden");
+loader.classList.add("hidden");
 
 // * Fetch api function
 const loadCardsFromApi = async () => {
+  loader.classList.remove("hidden");
   const randomPokemonIds = new Set();
 
   while (randomPokemonIds.size < 8) {
@@ -34,6 +37,7 @@ const loadCardsFromApi = async () => {
   );
 
   console.log(pokemonData);
+  loader.classList.add("hidden");
   return pokemonData;
 };
 
