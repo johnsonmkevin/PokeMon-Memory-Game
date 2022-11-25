@@ -7,6 +7,7 @@ const gameBoardContainer = document.querySelector(".game__board");
 const loader = document.getElementById("loader");
 const stopwatch = document.getElementById("timer");
 const scoreboardWrapper = document.getElementById("scoreboard");
+const inputField = document.querySelector("input");
 
 let firstPick;
 let isPaused = true;
@@ -14,9 +15,15 @@ let matches = 0;
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
-// hidden elements by default
+// * hidden elements by default
 gameBoardContainer.classList.add("hidden");
 loader.classList.add("hidden");
+startButton.classList.add("hidden");
+
+// * input event
+inputField.addEventListener("input", () => {
+  startButton.classList.remove("hidden");
+});
 
 // * Fetch api function
 const loadCardsFromApi = async () => {
@@ -64,7 +71,7 @@ const displayPokemonCards = (pokemonIdsArray) => {
 
 // * Scoreboard function
 const storeScore = (currentScore) => {
-  let name = "Ester";
+  let name = inputField.value || "Player";
   let scoreDate = new Date();
   let playerScore = {
     date: scoreDate.toLocaleDateString(),
@@ -100,7 +107,7 @@ const setScoreboard = () => {
   });
 };
 
-// * start timer fucntionality
+// * start timer functionality
 const updateStopwatch = () => {
   const time = Date.now() - timerStart;
   const seconds = Math.floor(time / 1000) % 60;
@@ -188,7 +195,9 @@ const createNewGame = async () => {
   }, 200);
 
   startTimer();
+
   startButton.disabled = true; // disables the new game button while a game is already playing
+  inputField.disabled = true; // disables the new game button while a game is already playing
 };
 
 //* event listeners

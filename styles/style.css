@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 * {
   padding: 0;
   margin: 0;
@@ -25,6 +27,7 @@ body {
     #ffdc87,
     #f9f184
   );
+  font-family: "Nunito", sans-serif;
 }
 
 .game__container {
@@ -53,8 +56,18 @@ body {
 
 .game__header--timer-container {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   font-size: 1.2rem;
+}
+
+.game__header--timer-container input {
+  outline: none;
+  padding: 1rem;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #000;
 }
 
 .game__header--timer-container p {
@@ -166,4 +179,60 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .game__header h1 {
+    -webkit-text-stroke: 1px #3a5da8;
+  }
+
+  #gameBoard {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+  }
+
+  .game__header h1 {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back img {
+    height: 55px;
+    width: 55px;
+  }
+
+  .back h2 {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .game__header h1 {
+    -webkit-text-stroke: 1px #3a5da8;
+  }
+
+  #gameBoard {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+  }
+
+  .game__header h1 {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .back h2 {
+    text-align: center;
+    font-size: 0.7rem;
+  }
 }
