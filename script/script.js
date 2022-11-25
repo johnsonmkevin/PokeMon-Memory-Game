@@ -1,26 +1,30 @@
 const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 
 // HTML Elements
-const startButton = document.getElementById("startGameButton");
+const startButton = document.getElementById("startGameButton"); //link to whatever is in the HTML
 const gameBoard = document.getElementById("gameBoard");
-const gameBoardContainer = document.querySelector(".game__board");
-const loader = document.getElementById("loader");
-const stopwatch = document.getElementById("timer");
-const scoreboardWrapper = document.getElementById("scoreboard");
 
-let firstPick;
-let isPaused = true;
-let matches = 0;
+const gameBoardContainer = document.querySelector(".game__board")
+gameBoardContainer.classList.add("hidden")
+
+// loader
+const loader = document.getElementById("loader");
+
+//Scoreboard
+const scoreboardWrapper = document.getElementById("scoreboard");
+let scoreboardElement = document.createElement("li");
 
 let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
 
-// hidden elements by default
-gameBoardContainer.classList.add("hidden");
-loader.classList.add("hidden");
+
+
+// * Display loader
+// const displayLoader = () => {
+//   loader.classList.toggle("hidden");
+// };
 
 // * Fetch api function
 const loadCardsFromApi = async () => {
-  loader.classList.remove("hidden");
   const randomPokemonIds = new Set();
 
   while (randomPokemonIds.size < 8) {
@@ -37,67 +41,64 @@ const loadCardsFromApi = async () => {
   );
 
   console.log(pokemonData);
-  loader.classList.add("hidden");
   return pokemonData;
 };
+console.log(loadCardsFromApi());
 
-// * Rendering images in the gameboard
+// Rendering images in the gameboard
+const createNewGame = async () => {
+  gameBoardContainer.classList.remove("hidden")
+  const gameCardsDataArray = await loadCardsFromApi();
+  displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
+};
+
 const displayPokemonCards = (pokemonIdsArray) => {
   pokemonIdsArray.sort((_) => Math.random() - 0.5);
+  console.log(pokemonIdsArray);
+
   const pokemonCardHTML = pokemonIdsArray
     .map((card) => {
       const pokemonImgData = card.sprites.front_default;
       const pokemonNameData = card.name;
       return `
-        <div class="card" onclick="flipCard(event)" data-pokename="${pokemonNameData}">
-          <div class="front"></div>
-          <div class="back rotated">
-            <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
-            <h2>${pokemonNameData}</h2>
-          </div>
-        </div>
-      `;
+    <div class="card" data-pokename="${pokemonNameData}">
+    <div class="front"></div>
+    <div class="back rotated">
+    <img src="${pokemonImgData}" alt="${pokemonNameData}"  />
+    <h2>${pokemonNameData}</h2>
+    </div>
+    </div>
+    `;
     })
     .join("");
   gameBoard.innerHTML = pokemonCardHTML;
 };
 
 // * Scoreboard function
-const storeScore = (currentScore) => {
-  let name = "Ester";
-  let scoreDate = new Date();
-  let playerScore = {
-    date: scoreDate.toLocaleDateString(),
-    player: name,
-    score: currentScore,
-  };
-  scoreArray.push(playerScore);
-  localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-  // console.log(scoreArray);
-  // console.log(JSON.parse(localStorage.getItem("scoreArray")));
-  return scoreArray;
-};
-
-// * create a list element when a score exists
-const createListElement = (i) => {
-  let scoreboardElement = document.createElement("li");
-
-  scoreboardElement.innerHTML =
-    JSON.parse(localStorage.getItem("scoreArray"))[i].date +
-    " " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].player +
-    ": " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].score;
-  scoreboardWrapper.prepend(scoreboardElement);
-  console.log(scoreboardElement);
-};
-
 const setScoreboard = () => {
   let i = 0;
   scoreArray.forEach(() => {
-    createListElement(i);
+    console.log(localStorage.getItem("scoreArray"));
+    console.log(JSON.parse(localStorage.getItem("scoreArray")));
+
+    scoreboardElement.innerHTML =
+      JSON.parse(localStorage.getItem("scoreArray"))[i].player +
+      ": " +
+      JSON.parse(localStorage.getItem("scoreArray"))[i].score;
+    scoreboardWrapper.append(scoreboardElement);
+    console.log(scoreboardElement);
     i++;
   });
+};
+
+const storeScore = (currentScore) => {
+  // let name = prompt("User Name?");
+  let playerScore = { player: name, score: currentScore };
+  scoreArray.push(playerScore);
+  localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+  console.log(scoreArray);
+  console.log(JSON.parse(localStorage.getItem("scoreArray")));
+  return scoreArray;
 };
 
 // * start timer fucntionality
@@ -123,77 +124,13 @@ const startTimer = () => {
 // * stop timer functionality
 const stopTimer = () => {
   storeScore(stopwatch.innerText);
-  createListElement(scoreArray.length - 1);
   clearInterval(timer);
-
-  console.log(scoreArray);
-  startButton.disabled = false;
 };
 
-// * FLipping card functionality
-const flipCard = (e) => {
-  const pokemonCard = e.currentTarget;
-  const [front, back] = getFrontAndBack(pokemonCard);
-  if (front.classList.contains("rotated") || isPaused) {
-    return;
-  }
-  isPaused = true;
-  rotateElements([front, back]);
-  if (!firstPick) {
-    firstPick = pokemonCard;
-    isPaused = false;
-  } else {
-    const secondPokemonName = pokemonCard.dataset.pokename;
-    const firstPokemonName = firstPick.dataset.pokename;
-    if (firstPokemonName !== secondPokemonName) {
-      const [firstFront, firstBack] = getFrontAndBack(firstPick);
-      setTimeout(() => {
-        rotateElements([front, back, firstFront, firstBack]);
-        firstPick = null;
-        isPaused = false;
-      }, 500);
-    } else {
-      matches++;
-      if (matches === 8) {
-        stopTimer();
-        console.log("WINNER");
-      }
-      firstPick = null;
-      isPaused = false;
-    }
-  }
-};
+// ! List of helper functions
+// loadCardsFromApi()
+// stopTimer()
+// startTimer()
+// setScoreboard()
 
-const getFrontAndBack = (card) => {
-  const front = card.querySelector(".front");
-  const back = card.querySelector(".back");
-  return [front, back];
-};
-
-const rotateElements = (elements) => {
-  if (typeof elements !== "object" || !elements.length) return;
-  elements.forEach((element) => element.classList.toggle("rotated"));
-};
-
-// * Start new Game
-const createNewGame = async () => {
-  isPaused = true;
-  firstPick = null;
-  matches = 0;
-  gameBoardContainer.classList.remove("hidden");
-  setTimeout(async () => {
-    const gameCardsDataArray = await loadCardsFromApi();
-    displayPokemonCards([...gameCardsDataArray, ...gameCardsDataArray]);
-    isPaused = false;
-  }, 200);
-
-  startTimer();
-  startButton.disabled = true; // disables the new game button while a game is already playing
-};
-
-//* event listeners
 startButton.addEventListener("click", createNewGame);
-
-window.addEventListener("load", () => {
-  setScoreboard();
-});
