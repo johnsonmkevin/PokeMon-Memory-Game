@@ -64,7 +64,7 @@ const displayPokemonCards = (pokemonIdsArray) => {
 
 // * Scoreboard function
 const storeScore = (currentScore) => {
-  let name = "Ester";
+  let name = prompt("UserName?");
   let scoreDate = new Date();
   let playerScore = {
     date: scoreDate.toLocaleDateString(),
