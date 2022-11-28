@@ -43,12 +43,11 @@ const loadCardsFromApi = async () => {
     responseFromApi.map((item) => item.json())
   );
 
-  console.log(pokemonData);
   loader.classList.add("hidden");
   return pokemonData;
 };
 
-// * Rendering images in the gameboard
+// * Rendering images in the game board
 const displayPokemonCards = (pokemonIdsArray) => {
   pokemonIdsArray.sort((_) => Math.random() - 0.5);
   const pokemonCardHTML = pokemonIdsArray
@@ -80,8 +79,6 @@ const storeScore = (currentScore) => {
   };
   scoreArray.push(playerScore);
   localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-  // console.log(scoreArray);
-  // console.log(JSON.parse(localStorage.getItem("scoreArray")));
   return scoreArray;
 };
 
@@ -96,7 +93,6 @@ const createListElement = (i) => {
     ": " +
     JSON.parse(localStorage.getItem("scoreArray"))[i].score;
   scoreboardWrapper.prepend(scoreboardElement);
-  console.log(scoreboardElement);
 };
 
 const setScoreboard = () => {
@@ -133,7 +129,6 @@ const stopTimer = () => {
   createListElement(scoreArray.length - 1);
   clearInterval(timer);
 
-  console.log(scoreArray);
   startButton.disabled = false;
 };
 
@@ -163,7 +158,6 @@ const flipCard = (e) => {
       matches++;
       if (matches === 8) {
         stopTimer();
-        console.log("WINNER");
       }
       firstPick = null;
       isPaused = false;

@@ -140,6 +140,16 @@ body {
   font-size: 1.5rem;
 }
 
+.highscore__list {
+  padding: 2rem;
+  list-style-type: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
 /* loader */
 .lds-ring {
   display: inline-block;
