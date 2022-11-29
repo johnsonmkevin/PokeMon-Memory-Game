@@ -5,11 +5,12 @@
 ### SUMMARY
 
 - This project has been developed to fulfill the requirements of the Hyper Island Course Goals Skill and Knowledge.
-  The game was developed according to the course goals mentioned in the curriculum provided.
-  The application has been developed based on the main functionality which fetches data from an api and manipulate it according
-  to the application needs.
 
 ![Flow chart](https://res.cloudinary.com/frank2021/image/upload/v1669640273/pokemon_game/Flow_chart_xmjjop.png)
+
+We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
+
+Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local Storage.
 
 ## GitHub collaboration
 
@@ -23,7 +24,7 @@
 
     ![Pull requests](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/pull_requests_yqvh01.png)
 
-3.  Branching
+3.  Branching:
 
     ![Branching](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/fork_and_branches_hvdn9g.png)
 
@@ -39,7 +40,7 @@
 
 ## Array and local storage
 
-- This project also makes use of arrays, and local storage which saves the user data on their machine holding the player scores.
+- This project also makes use of arrays, and local storage which saves the user data on their machine holding the player scores in a array, displaying a list of scores to the user.
 
   ![Array and local storage](https://res.cloudinary.com/frank2021/image/upload/v1669665647/pokemon_game/array_and_localstorage_d3m8uj.png)
 
