@@ -51,4 +51,4 @@
 
 ## Acknowledgments
 
-- This project has taught me how to be better in a work environment and how to collaborate with team members, it was a almost unique feeling to get something built from the ground up together. So I would like to thank my team: Kevin Johnson and Ester Cortes for all the time spent together during the learning process. Also big thanks to Christoffer Teye for the great mentoring skills.
+- This project has taught me how to be better in a work environment and how to collaborate with team members, it was a almost unique feeling to get something built from the ground up together. So I would like to thank my team: [Kevin Johnson](https://github.com/johnsonmkevin) and [Ester Cortes](https://github.com/kristallers) for all the time spent together during the learning process. Also big thanks to Christoffer Teye for the great mentoring skills.
