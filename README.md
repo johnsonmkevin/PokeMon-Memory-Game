@@ -2,6 +2,8 @@
 
 - [Click here for live project](https://adorable-syrniki-de194e.netlify.app/)
 
+![Game Logo](https://res.cloudinary.com/frank2021/image/upload/v1669823748/pokemon_game/2022-11-30_7_ogcpro.png)
+
 ### SUMMARY
 
 - This project has been developed to fulfill the requirements of the Hyper Island Course Goals Skill 2 and Knowledge 2.
@@ -20,7 +22,7 @@
 
 We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
 
-Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local storage. Thou we do not make use of an external database, this application is scalable and could be something we implement in the future.
+Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local storage. Thou we do not make use of an external database, it could be something we implement in the future.
 
 ## GitHub collaboration
 
