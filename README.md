@@ -10,11 +10,11 @@
 
 We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
 
-Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local Storage. Thou we do not make use of an external database, this application is scalable and could be something we implement in the future.
+Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local storage. Thou we do not make use of an external database, this application is scalable and could be something we implement in the future.
 
 ## GitHub collaboration
 
-- This project was developed using git version control, and through code collaboration with my support group, which gave us a deeper understanding of the tools available, and how to make better use of gitHub.
+- This project was developed using git version control for code collaboration with my support group, which gave us a deeper understanding of the tools available, and how to make better use of gitHub, while working as team.
 
 1.  Contributors:
 
@@ -31,8 +31,8 @@ Players have to type their name in order to unlock the start game functionality.
 ## Functions, loops, object manipulation and Api fetching
 
 - As part of the projects knowledge goals, the use of functions, loops and object manipulation was implemented.
-  This methods were very important to develop a project of such a scope together with using asynchronous JavaScript
-  that makes it even more challenging to develop.
+  This methods were very important to develop a project of such a scope. We also made use of asynchronous JavaScript
+  which helped with the work flow which was based on data fetching.
 
   ![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
 
