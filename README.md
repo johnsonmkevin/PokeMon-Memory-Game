@@ -48,11 +48,11 @@ Players have to type their name in order to unlock the start game functionality.
 
 - To better understand JavaScript's file structure we have provided a simple snapshot of the code structure:
 
-1. We have defined all global variables up top, to avoid errors, as well as to make them available to all functions.
+1. We have defined all global scoped variables up top, to avoid errors when using strict mode, as well as to make them available to all functions.
 
 ![Variables](https://res.cloudinary.com/frank2021/image/upload/v1669810489/pokemon_game/variable_scope_uup9vz.png)
 
-2. We have defined functions according to their use need (Scope) ex. createNewGame() function has been declared at the bottom of the code because it makes use of other helper functions, and variables that have been declared through out the code base:
+2. We have defined functions according to their use need (Scope) ex. createNewGame() function has been declared at the bottom of the code because it makes use of other helper functions, and variables that have been declared through out the code base.
 
 ![createNewGame() function](https://res.cloudinary.com/frank2021/image/upload/v1669809103/pokemon_game/function_scope_pyr72l.png)
 
