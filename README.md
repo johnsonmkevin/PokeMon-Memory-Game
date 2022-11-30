@@ -18,15 +18,23 @@ Players have to type their name in order to unlock the start game functionality.
 
 1.  Contributors:
 
-    ![Contributors](https://res.cloudinary.com/frank2021/image/upload/v1669710463/pokemon_game/contributors_gv5hh6.png)
+- We have created a repository where my team members are listed as contributors and have permission to modify the code:
 
-2.  Pull Requests:
+  ![Contributors](https://res.cloudinary.com/frank2021/image/upload/v1669710463/pokemon_game/contributors_gv5hh6.png)
 
-    ![Pull requests](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/pull_requests_yqvh01.png)
+2.  Branching:
 
-3.  Branching:
+- Each team member creates a new branch of the latest main update and adds their version of the code and push to github:
 
-    ![Branching](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/fork_and_branches_hvdn9g.png)
+  ![Branching](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/fork_and_branches_hvdn9g.png)
+
+3.  Pull Requests:
+
+- After the code is pushed to github, a pull request is created to check the code pushed to github for conflicts:
+
+  ![Pull requests](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/pull_requests_yqvh01.png)
+
+4. The code is then merged into the main branch.
 
 ## Functions, loops, object manipulation and api fetching
 
