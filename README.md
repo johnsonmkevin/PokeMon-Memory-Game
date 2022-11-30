@@ -76,7 +76,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 - This project also makes use of arrays, and local storage which saves the user data on their machine holding the player scores in a array, displaying a list of scores to the user, also putting into effect DOM manipulation through append/prepend the score board element into the DOM.
 
-  ![Array and local storage](https://res.cloudinary.com/frank2021/image/upload/v1669665647/pokemon_game/array_and_localstorage_d3m8uj.png)
+  ![Array and local storage](https://res.cloudinary.com/frank2021/image/upload/v1669820157/pokemon_game/score_array_pllfnc.png)
 
 - Data is stored in local storage in a array of objects, and displayed to the whenever user come back to the page, unless deleted by the user.
 
