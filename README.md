@@ -36,11 +36,13 @@ Players have to type their name in order to unlock the start game functionality.
 
   ![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
 
-  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669663340/pokemon_game/functions_jwgfu2.png)
-
 - Data is fetched and converted to json format, which has a similar object structure, making the use of external data very simple.
 
   ![Functions, loops and object manipulation 3](https://res.cloudinary.com/frank2021/image/upload/v1669803371/pokemon_game/obj_c7dm9w.png)
+
+- Data is now saved inside a variable and displayed dynamically on the page.
+
+  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669663340/pokemon_game/functions_jwgfu2.png)
 
 ## Array and local storage
 
