@@ -86,6 +86,12 @@ Players have to type their name in order to unlock the start game functionality.
 
   ![Array and local storage 2](https://res.cloudinary.com/frank2021/image/upload/v1669798740/pokemon_game/2022-11-30_sasolq.png)
 
+## Date and time
+
+- We have used the JavaScript Date method to set our timer based functions:
+
+  ![Date time](https://res.cloudinary.com/frank2021/image/upload/v1669821272/pokemon_game/date_time_o7joc5.png)
+
 ## Browser developer tools
 
 - We have used Chrome's developer tools to debug our code, as well as dealing with the api data fetching in order to understand how data is returned.
