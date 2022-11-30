@@ -6,6 +6,14 @@
 
 - This project has been developed to fulfill the requirements of the Hyper Island Course Goals Skill 2 and Knowledge 2.
 
+#### Knowledge 2:
+
+- Explain how to structure JavaScript files, functions and scopes in the context of web applications and external sources.
+
+#### Skill 2:
+
+- Plan and build a dynamic website that fetches content from API's or a database.
+
 ![Flow chart](https://res.cloudinary.com/frank2021/image/upload/v1669640273/pokemon_game/Flow_chart_xmjjop.png)
 
 We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
