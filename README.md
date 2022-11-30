@@ -14,6 +14,8 @@
 
 - Plan and build a dynamic website that fetches content from API's or a database.
 
+## Application flow
+
 ![Flow chart](https://res.cloudinary.com/frank2021/image/upload/v1669640273/pokemon_game/Flow_chart_xmjjop.png)
 
 We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
