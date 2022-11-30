@@ -1,6 +1,7 @@
-const apiURL = "https://pokeapi.co/api/v2/pokemon/";
+"use strict";
 
-// HTML Elements
+// HTML Elements & variables
+const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 const startButton = document.getElementById("startGameButton");
 const gameBoard = document.getElementById("gameBoard");
 const gameBoardContainer = document.querySelector(".game__board");
@@ -9,6 +10,8 @@ const stopwatch = document.getElementById("timer");
 const scoreboardWrapper = document.getElementById("scoreboard");
 const inputField = document.querySelector("input");
 
+let timerStart = Date.now();
+let timer;
 let firstPick;
 let isPaused = true;
 let matches = 0;
@@ -116,7 +119,6 @@ const updateStopwatch = () => {
 };
 
 const startTimer = () => {
-  timerStart = Date.now();
   updateStopwatch();
   timer = setInterval(() => {
     updateStopwatch();
