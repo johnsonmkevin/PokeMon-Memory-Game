@@ -158,6 +158,8 @@ const flipCard = (e) => {
       matches++;
       if (matches === 8) {
         stopTimer();
+        inputField.disabled = false;
+        startButton.classList.add("hidden");
       }
       firstPick = null;
       isPaused = false;

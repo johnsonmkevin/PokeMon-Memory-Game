@@ -10,7 +10,7 @@
 
 We have developed a game that fetches data from an API, and displays the data dynamically in order to create a game experience.
 
-Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local Storage.
+Players have to type their name in order to unlock the start game functionality. When 8 card matches are achieved the counter will stop and the player time will be registered in local Storage. Thou we do not make use of an external database, this application is scalable and could be something we implement in the future.
 
 ## GitHub collaboration
 
@@ -43,6 +43,20 @@ Players have to type their name in order to unlock the start game functionality.
 - This project also makes use of arrays, and local storage which saves the user data on their machine holding the player scores in a array, displaying a list of scores to the user.
 
   ![Array and local storage](https://res.cloudinary.com/frank2021/image/upload/v1669665647/pokemon_game/array_and_localstorage_d3m8uj.png)
+
+- Data is stored in local storage in a array of objects, and displayed to the whenever user come back to the page, unless deleted by the user.
+
+  ![Array and local storage 2](https://res.cloudinary.com/frank2021/image/upload/v1669798740/pokemon_game/2022-11-30_sasolq.png)
+
+## Browser developer tools
+
+- We have used Chrome's developer tools to debug our code, as well as dealing with the api data fetching in order to understand how data is returned.
+
+![Developer tools](https://res.cloudinary.com/frank2021/image/upload/v1669799914/pokemon_game/2022-11-30_2_faobic.png)
+
+- We have also used a series of console logs to determine if the application works and runs as it should.
+
+![Developer tools 2](https://res.cloudinary.com/frank2021/image/upload/v1669800471/pokemon_game/clg_eg1pc4.png)
 
 ## SEO and accessibility
 
