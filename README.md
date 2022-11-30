@@ -64,6 +64,10 @@ Players have to type their name in order to unlock the start game functionality.
 
 - Data is stored in local storage in a array of objects, and displayed to the whenever user come back to the page, unless deleted by the user.
 
+  1. localStorage: data doesn't expire (unless cleaned from browser) => (the one we make use of);
+
+  2. sessionStorage: data is cleared when the page session ends;
+
   ![Array and local storage 2](https://res.cloudinary.com/frank2021/image/upload/v1669798740/pokemon_game/2022-11-30_sasolq.png)
 
 ## Browser developer tools
