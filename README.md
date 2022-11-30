@@ -4,7 +4,7 @@
 
 ### SUMMARY
 
-- This project has been developed to fulfill the requirements of the Hyper Island Course Goals Skill and Knowledge.
+- This project has been developed to fulfill the requirements of the Hyper Island Course Goals Skill 2 and Knowledge 2.
 
 ![Flow chart](https://res.cloudinary.com/frank2021/image/upload/v1669640273/pokemon_game/Flow_chart_xmjjop.png)
 
@@ -75,6 +75,11 @@ Players have to type their name in order to unlock the start game functionality.
 - We have also used a series of console logs to determine if the application works and runs as it should.
 
 ![Developer tools 2](https://res.cloudinary.com/frank2021/image/upload/v1669800471/pokemon_game/clg_eg1pc4.png)
+
+## Feedback from group and mentor
+
+- During the process of development we as group have taken feedback from our mentor, and from within our group for several details and improvements.
+  But also from the game jam that happened in the campus on the 29th of November 22. That really helped us with testing and improving the application further.
 
 ## SEO and accessibility
 
