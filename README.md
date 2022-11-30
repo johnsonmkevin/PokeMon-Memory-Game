@@ -52,7 +52,7 @@ Players have to type their name in order to unlock the start game functionality.
 
   ![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
 
-- Data is fetched and converted to json format, which has a similar object structure, making the use of external data very simple.
+- Data is fetched and converted to JavaScript object format.
 
   ![Functions, loops and object manipulation 3](https://res.cloudinary.com/frank2021/image/upload/v1669803371/pokemon_game/obj_c7dm9w.png)
 
