@@ -90,11 +90,11 @@ const createListElement = (i) => {
   let scoreboardElement = document.createElement("li");
 
   scoreboardElement.innerHTML =
-    JSON.parse(localStorage.getItem("scoreArray"))[i].date +
-    " " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].player +
+    scoreArray[i].date +
+    "- " +
+    scoreArray[i].player +
     ": " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].score;
+    scoreArray[i].score;
   scoreboardWrapper.prepend(scoreboardElement);
 };
 
