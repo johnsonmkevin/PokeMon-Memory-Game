@@ -57,7 +57,7 @@ Players have to type their name in order to unlock the start game functionality.
 - As part of the projects knowledge goals, we have implemented several functions through out the code base, to help with with separation of
   concerns and better code readability.
 
-![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
+![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669929007/pokemon_game/fetchfucntion_qj7loh.png)
 
 ## Loops
 
@@ -69,7 +69,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 - Once data is fetched, we then saved inside a variable and displayed dynamically on the page, putting to use DOM manipulation, rendering the card element using string literals.
 
-  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669663340/pokemon_game/functions_jwgfu2.png)
+  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669929007/pokemon_game/display_cards_jsgznv.png)
 
 ## API data fetching
 
