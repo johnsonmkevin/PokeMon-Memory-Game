@@ -61,7 +61,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 ## Loops
 
-- We have also used loops to help on the process of data fetching, in this case we made use a _while_ loop.
+- We have also used loops to help on the process of data fetching, in this case we made use of a _while_ loop.
 
   ![While loop](https://res.cloudinary.com/frank2021/image/upload/v1669897855/pokemon_game/while_loop_g6ro1q.png)
 
