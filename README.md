@@ -42,7 +42,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 3.  Pull Requests:
 
-- After the code is pushed to github, a pull request is created to check the code pushed to github for conflicts:
+- After the code is pushed to github, a pull request is created to check the code pushed for conflicts:
 
   ![Pull requests](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/pull_requests_yqvh01.png)
 
@@ -95,7 +95,7 @@ Players have to type their name in order to unlock the start game functionality.
 
   ![Array and local storage](https://res.cloudinary.com/frank2021/image/upload/v1669820157/pokemon_game/score_array_pllfnc.png)
 
-- Data is stored in local storage in a array of objects, and displayed to the whenever user come back to the page, unless deleted by the user.
+- Data is stored in local storage in a array of objects, and displayed whenever user comes back to the page.
 
   1. localStorage: data doesn't expire (unless cleaned from browser) => (the one we make use of);
 
