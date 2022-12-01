@@ -48,21 +48,30 @@ Players have to type their name in order to unlock the start game functionality.
 
 4. The code is then merged into the main branch.
 
-## Functions, loops, object manipulation and api fetching
+## Functions
 
-- As part of the projects knowledge goals, the use of functions, loops and object manipulation was implemented.
-  This methods were very important to develop a project of such a scope. We also made use of asynchronous JavaScript
-  which helped with the work flow which was based on data fetching.
+- As part of the projects knowledge goals, we have implemented several functions through out the code base, to help with with separation of
+  concerns and better code readability.
 
-  ![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
+![Functions, loops and object manipulation 1](https://res.cloudinary.com/frank2021/image/upload/v1669663646/pokemon_game/api_fetching_echvih.png)
+
+## Loops
+
+- We have also used loops to help on the process of data fetching, in this case we made use a _while_ loop.
+
+  ![While loop](https://res.cloudinary.com/frank2021/image/upload/v1669897855/pokemon_game/while_loop_g6ro1q.png)
+
+## DOM manipulation
+
+- Once data is fetched, we then saved inside a variable and displayed dynamically on the page, putting to use DOM manipulation, rendering the card element using string literals.
+
+  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669663340/pokemon_game/functions_jwgfu2.png)
+
+## API data fetching
 
 - Data is fetched and converted to JavaScript object format.
 
   ![Functions, loops and object manipulation 3](https://res.cloudinary.com/frank2021/image/upload/v1669803371/pokemon_game/obj_c7dm9w.png)
-
-- Data is now saved inside a variable and displayed dynamically on the page, putting to use DOM manipulation, rendering the card element using string literals.
-
-  ![Functions, loops and object manipulation 2](https://res.cloudinary.com/frank2021/image/upload/v1669663340/pokemon_game/functions_jwgfu2.png)
 
 ## File structure
 
