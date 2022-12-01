@@ -26,7 +26,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 ## GitHub collaboration
 
-- This project was developed using git version control for code collaboration with my support group, which gave us a deeper understanding of the tools available, and how to make better use of gitHub, while working as team.
+- This project was developed using git version control and github for code collaboration with my support group, which gave us a deeper understanding of the tools available, and how to make better use of gitHub, while working as team.
 
 1.  Contributors:
 
