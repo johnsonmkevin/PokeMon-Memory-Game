@@ -46,9 +46,11 @@ Players have to type their name in order to unlock the start game functionality.
 
   ![Pull requests](https://res.cloudinary.com/frank2021/image/upload/v1669640716/pokemon_game/pull_requests_yqvh01.png)
 
-4. The code is then merged into the main branch.
+4. Merge:
 
-   ![Merged code](https://res.cloudinary.com/frank2021/image/upload/v1669898460/pokemon_game/2022-12-01_amd2oe.png)
+- If no conflicts were found, the code is then merged into the main branch:
+
+  ![Merged code](https://res.cloudinary.com/frank2021/image/upload/v1669898460/pokemon_game/2022-12-01_amd2oe.png)
 
 ## Functions
 
