@@ -48,6 +48,8 @@ Players have to type their name in order to unlock the start game functionality.
 
 4. The code is then merged into the main branch.
 
+   ![Merged code](https://res.cloudinary.com/frank2021/image/upload/v1669898460/pokemon_game/2022-12-01_amd2oe.png)
+
 ## Functions
 
 - As part of the projects knowledge goals, we have implemented several functions through out the code base, to help with with separation of
