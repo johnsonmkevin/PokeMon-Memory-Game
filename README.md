@@ -89,6 +89,10 @@ Players have to type their name in order to unlock the start game functionality.
 
 ![createNewGame() function](https://res.cloudinary.com/frank2021/image/upload/v1669809103/pokemon_game/function_scope_pyr72l.png)
 
+- We did not make use of modules in this project, but in the future this can be a feature to implement later on.
+
+  (JavaScript modules allow you to break up your code into separate files. This makes it easier to maintain the code-base. JavaScript modules rely on the import and export statements.)
+
 ## Array and local storage
 
 - This project also makes use of arrays, and local storage which saves the user data on their machine holding the player scores in a array, displaying a list of scores to the user, also putting into effect DOM manipulation through append/prepend the score board element into the DOM.
