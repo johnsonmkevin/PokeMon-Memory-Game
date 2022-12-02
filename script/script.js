@@ -1,6 +1,7 @@
-const apiURL = "https://pokeapi.co/api/v2/pokemon/";
+"use strict";
 
-// HTML Elements
+// HTML Elements & variables
+const apiURL = "https://pokeapi.co/api/v2/pokemon/";
 const startButton = document.getElementById("startGameButton");
 const gameBoard = document.getElementById("gameBoard");
 const gameBoardContainer = document.querySelector(".game__board");
@@ -9,6 +10,8 @@ const stopwatch = document.getElementById("timer");
 const scoreboardWrapper = document.getElementById("scoreboard");
 const inputField = document.querySelector("input");
 
+let timerStart = Date.now();
+let timer;
 let firstPick;
 let isPaused = true;
 let matches = 0;
@@ -43,12 +46,11 @@ const loadCardsFromApi = async () => {
     responseFromApi.map((item) => item.json())
   );
 
-  console.log(pokemonData);
   loader.classList.add("hidden");
   return pokemonData;
 };
 
-// * Rendering images in the gameboard
+// * Rendering images in the game board
 const displayPokemonCards = (pokemonIdsArray) => {
   pokemonIdsArray.sort((_) => Math.random() - 0.5);
   const pokemonCardHTML = pokemonIdsArray
@@ -80,8 +82,6 @@ const storeScore = (currentScore) => {
   };
   scoreArray.push(playerScore);
   localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-  // console.log(scoreArray);
-  // console.log(JSON.parse(localStorage.getItem("scoreArray")));
   return scoreArray;
 };
 
@@ -90,13 +90,12 @@ const createListElement = (i) => {
   let scoreboardElement = document.createElement("li");
 
   scoreboardElement.innerHTML =
-    JSON.parse(localStorage.getItem("scoreArray"))[i].date +
-    " " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].player +
+    scoreArray[i].date +
+    "- " +
+    scoreArray[i].player +
     ": " +
-    JSON.parse(localStorage.getItem("scoreArray"))[i].score;
+    scoreArray[i].score;
   scoreboardWrapper.prepend(scoreboardElement);
-  console.log(scoreboardElement);
 };
 
 const setScoreboard = () => {
@@ -120,7 +119,6 @@ const updateStopwatch = () => {
 };
 
 const startTimer = () => {
-  timerStart = Date.now();
   updateStopwatch();
   timer = setInterval(() => {
     updateStopwatch();
@@ -133,7 +131,6 @@ const stopTimer = () => {
   createListElement(scoreArray.length - 1);
   clearInterval(timer);
 
-  console.log(scoreArray);
   startButton.disabled = false;
 };
 
@@ -163,7 +160,8 @@ const flipCard = (e) => {
       matches++;
       if (matches === 8) {
         stopTimer();
-        console.log("WINNER");
+        inputField.disabled = false;
+        startButton.classList.add("hidden");
       }
       firstPick = null;
       isPaused = false;
