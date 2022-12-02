@@ -89,7 +89,7 @@ Players have to type their name in order to unlock the start game functionality.
 
 ![createNewGame() function](https://res.cloudinary.com/frank2021/image/upload/v1669809103/pokemon_game/function_scope_pyr72l.png)
 
-- We did not make use of modules in this project, but in the future this can be a feature to implement later on.
+- We did not make use of modules in this project, but in the future this can be a feature to implement if the application scales up.
 
   (JavaScript modules allow you to break up your code into separate files. This makes it easier to maintain the code-base. JavaScript modules rely on the import and export statements.)
 
